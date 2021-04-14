@@ -116,4 +116,11 @@ class ProgramPlatformLanguageTest extends \PHPUnit_Framework_TestCase
     public function testPropertyIsSalesClient()
     {
     }
+
+    /**
+     * Test attribute "partner_download"
+     */
+    public function testPropertyPartnerDownload()
+    {
+    }
 }

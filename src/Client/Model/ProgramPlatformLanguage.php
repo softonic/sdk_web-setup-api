@@ -66,7 +66,9 @@ class ProgramPlatformLanguage implements ModelInterface, ArrayAccess, JsonSerial
 'id_language' => 'string',
 'dont_allow_download' => 'bool',
 'force_external_download' => 'bool',
-'is_sales_client' => 'bool'    ];
+'is_sales_client' => 'bool',
+'partner_download' => 'bool',
+    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -79,7 +81,9 @@ class ProgramPlatformLanguage implements ModelInterface, ArrayAccess, JsonSerial
 'id_language' => null,
 'dont_allow_download' => null,
 'force_external_download' => null,
-'is_sales_client' => null    ];
+'is_sales_client' => null,
+'partner_download' => null,
+        ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -113,7 +117,9 @@ class ProgramPlatformLanguage implements ModelInterface, ArrayAccess, JsonSerial
 'id_language' => 'id_language',
 'dont_allow_download' => 'dont_allow_download',
 'force_external_download' => 'force_external_download',
-'is_sales_client' => 'is_sales_client'    ];
+'is_sales_client' => 'is_sales_client',
+'partner_download' => 'partner_download',
+    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -126,7 +132,9 @@ class ProgramPlatformLanguage implements ModelInterface, ArrayAccess, JsonSerial
 'id_language' => 'setIdLanguage',
 'dont_allow_download' => 'setDontAllowDownload',
 'force_external_download' => 'setForceExternalDownload',
-'is_sales_client' => 'setIsSalesClient'    ];
+'is_sales_client' => 'setIsSalesClient',
+'partner_download' => 'setPartnerDownload',
+    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -139,7 +147,9 @@ class ProgramPlatformLanguage implements ModelInterface, ArrayAccess, JsonSerial
 'id_language' => 'getIdLanguage',
 'dont_allow_download' => 'getDontAllowDownload',
 'force_external_download' => 'getForceExternalDownload',
-'is_sales_client' => 'getIsSalesClient'    ];
+'is_sales_client' => 'getIsSalesClient',
+'partner_download' => 'getPartnerDownload',
+    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -205,6 +215,7 @@ class ProgramPlatformLanguage implements ModelInterface, ArrayAccess, JsonSerial
         array_key_exists('dont_allow_download', $data) && $this->container['dont_allow_download'] = $data['dont_allow_download'];
         array_key_exists('force_external_download', $data) && $this->container['force_external_download'] = $data['force_external_download'];
         array_key_exists('is_sales_client', $data) && $this->container['is_sales_client'] = $data['is_sales_client'];
+        array_key_exists('partner_download', $data) && $this->container['partner_download'] = $data['partner_download'];
     }
 
     /**
@@ -415,6 +426,32 @@ false;
 
         return $this;
     }
+
+    /**
+     * Gets partner_download
+     *
+     * @return bool
+     */
+    public function getPartnerDownload()
+    {
+        return array_key_exists('partner_download', $this->container) ? $this->container['partner_download'] :
+            false;
+    }
+
+    /**
+     * Sets is_sales_client
+     *
+     * @param bool $partner_download This program download is provided by an external partner
+     *
+     * @return $this
+     */
+    public function setPartnerDownload($partner_download)
+    {
+        $this->container['partner_download'] = $partner_download;
+
+        return $this;
+    }
+
     /**
      * Returns true if offset exists. False otherwise.
      *
@@ -515,6 +552,7 @@ false;
         $data['dont_allow_download'] = $this->getDontAllowDownload();
         $data['force_external_download'] = $this->getForceExternalDownload();
         $data['is_sales_client'] = $this->getIsSalesClient();
+        $data['partner_download'] = $this->getPartnerDownload();
 
         return $data;
     }
